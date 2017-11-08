@@ -96,7 +96,7 @@ def write(action):
     fext = syntax[data["syntax"]]
     name = re.sub(r'[<>:"\/\\|?*]', '', data['name'])
     filename = f"{name}{ext}{fext}"
-    filepath = os.path.join(get_setting("tempPath" if data["temp"] else "pmPath"), data["place_name"], data["path"])
+    filepath = os.path.join(get_setting("tempPath" if data["temp"] else "pmPath"), data["place_name"], re.sub(r'[<>:"\\|?*]', '', data["path"])) #HACK: Folder names with slashes won't work (not escaped). This is a client issue.
     file = os.path.join(filepath, filename)
     
     if fileCache.get(file) != data["guid"]:
