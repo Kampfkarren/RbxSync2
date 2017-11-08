@@ -17,7 +17,7 @@ There are many known issues with editing scripts inside studio and with your edi
 
 Other issues include Watchdog (the file watching tool RbxSync2 uses) not having permissions on files. The reason for this is unknown.
 
-Moonscript is not supported currently, and is not a high priority. 
+MoonScript is not supported currently, and is not a high priority. 
 
 ## Donate
 RbxSync2 is free software. If you would like to fund this or other projects of mine, you can donate to me on [Patreon](https://www.patreon.com/kampfkarren). 
