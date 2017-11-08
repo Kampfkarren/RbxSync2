@@ -116,7 +116,6 @@ def write(action):
         f.write(data["source"])
     
     if file not in fileCache:
-        #TODO: watcher
         observer = Observer()
         observer.schedule(WriteHandler(data), filepath, recursive=True)
         observer.start()
