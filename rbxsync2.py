@@ -78,15 +78,16 @@ class WriteHandler(FileSystemEventHandler):
     def on_modified(self, event):
         filename = event.src_path
 
-        with open(filename, "r") as file:
-            if self.data["syntax"] == "lua":
-                if self.data["guid"] not in updates:
-                    updates[self.data["guid"]] = {}
-                
-                updates[self.data["guid"]][time.time()] = {
-                    "guid": self.data["guid"],
-                    "source": file.read()
-                }
+        if os.path.isfile(filename):
+            with open(filename, "r") as file:
+                if self.data["syntax"] == "lua":
+                    if self.data["guid"] not in updates:
+                        updates[self.data["guid"]] = {}
+                    
+                    updates[self.data["guid"]][time.time()] = {
+                        "guid": self.data["guid"],
+                        "source": file.read()
+                    }
 
 @app.route("/write/<action>", methods=["POST"])
 def write(action):
@@ -117,7 +118,7 @@ def write(action):
     
     if file not in fileCache:
         observer = Observer()
-        observer.schedule(WriteHandler(data), filepath, recursive=True)
+        observer.schedule(WriteHandler(data), filepath + "/", recursive=True)
         observer.start()
 
         watchers[file] = observer

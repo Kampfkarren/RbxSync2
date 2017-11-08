@@ -17,8 +17,6 @@ RbxSync (the plugin) can be downloaded in [RbxSync's release section](https://gi
 ## Issues
 There are many known issues with editing scripts inside studio and with your editor at the same time. It is recommended you only use your external editor to write scripts. 
 
-Other issues include Watchdog (the file watching tool RbxSync2 uses) not having permissions on files. The reason for this is unknown.
-
 MoonScript is not supported currently, and is not a high priority. 
 
 ## Donate
