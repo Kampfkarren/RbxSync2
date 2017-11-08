@@ -1,4 +1,4 @@
-# RbxSync2 - Like RbxSync only it doesn't take 70% of your CPU.
+# RbxSync2 - Like RbxSync only it doesn't take 80% of your CPU.
 
 RbxSync2 is a rewrite of the [RbxSync server](https://github.com/evaera/RbxSync) to avoid the use of Electron. Note this is only the SERVER, and does not provide the plugin that RbxSync provides.
 
