@@ -8,7 +8,9 @@ It is recommended not to update RbxSync until it has been confirmed the RbxSync2
 v1.3.4 (BUILD 16)
 
 ## Downloads
-RbxSync2 can be downloaded in the [releases section](https://github.com/boynedmaster/RbxSync2/releases/latest).
+~~RbxSync2 can be downloaded in the [releases section](https://github.com/boynedmaster/RbxSync2/releases/latest).~~
+
+RbxSync2 must be made from source as of current. Use `pip install -r requirements.txt` to install the needed libraries, and then use `python rbxsync2.py` with Python >= 3.6.
 
 RbxSync (the plugin) can be downloaded in [RbxSync's release section](https://github.com/evaera/RbxSync/releases/latest). Simply download it, run it, and then once the plugin has been installed, close the server and then run RbxSync2.
 
