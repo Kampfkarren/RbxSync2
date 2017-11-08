@@ -1,5 +1,7 @@
 import json
 import os
+import re
+import string
 import time
 from collections import defaultdict, OrderedDict
 from flask import Flask, jsonify, request
@@ -92,7 +94,8 @@ def write(action):
     data = request.get_json()
     ext = extensions[data["class"]]
     fext = syntax[data["syntax"]]
-    filename = f"{data['name']}{ext}{fext}"
+    name = re.sub(r'[<>:"\/\\|?*]', '', data['name'])
+    filename = f"{name}{ext}{fext}"
     filepath = os.path.join(get_setting("tempPath" if data["temp"] else "pmPath"), data["place_name"], data["path"])
     file = os.path.join(filepath, filename)
     
@@ -101,8 +104,8 @@ def write(action):
 
         while fileCache.get(file) and fileCache[file] != data["guid"]:
             num += 1
-            file = os.path.join(filepath, f"{data['name']}{ext} ({num}).{fext}")
-    
+            file = os.path.join(filepath, f"{name}{ext} ({num}){fext}")
+
     if not data["place_name"] in guidCache: #shouldnt happen but sometimes does?
         guidCache[data["place_name"]] = []
     
@@ -124,7 +127,7 @@ def write(action):
     fileCache[data["guid"]] = file
 
     if openAfter:
-        os.system(file)
+        os.startfile(file)
     
     return "OK"
 
