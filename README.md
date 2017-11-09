@@ -17,6 +17,8 @@ RbxSync (the plugin) can be downloaded in [RbxSync's release section](https://gi
 ## Issues
 There are many known issues with editing scripts inside studio and with your editor at the same time. It is recommended you only use your external editor to write scripts. 
 
+There are also issues with scripts saving in the wrong places and files. There is not yet a repro case for this.
+
 MoonScript is not supported currently, and is not a high priority. 
 
 ## Donate
